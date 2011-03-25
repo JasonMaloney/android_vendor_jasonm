@@ -2,13 +2,13 @@
 $(call inherit-product, device/htc/heroc/heroc.mk)
 
 # Inherit some common cyanogenmod stuff.
-$(call inherit-product, vendor/cyanogen/products/common_full.mk)
+$(call inherit-product, vendor/jasonm/products/common_full.mk)
 
 
 #
 # Setup device specific product configuration.
 #
-PRODUCT_NAME := cyanogen_heroc
+PRODUCT_NAME := jasonm_heroc
 PRODUCT_BRAND := sprint
 PRODUCT_DEVICE := heroc
 PRODUCT_MODEL := HERO200
@@ -23,19 +23,14 @@ PRODUCT_SPECIFIC_DEFINES += TARGET_PRELINKER_MAP=$(TOP)/vendor/cyanogen/prelink-
 #
 ifdef CYANOGEN_NIGHTLY
     PRODUCT_PROPERTY_OVERRIDES += \
-        ro.modversion=CyanogenMod-7-$(shell date +%m%d%Y)-NIGHTLY-Heroc
+        ro.modversion=Android-2.3.3-$(shell date +%m%d%Y)-Heroc
 else
     ifdef CYANOGEN_RELEASE
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=CyanogenMod-7.0.0-RC2-Heroc
+            ro.modversion=Android-2.3.3-Heroc
     else
         PRODUCT_PROPERTY_OVERRIDES += \
-            ro.modversion=CyanogenMod-7.0.0-RC2-Heroc-KANG
+            ro.modversion=Android-2.3.3-Heroc
     endif
 endif
 
-#
-# Copy dream/sapphire specific prebuilt files
-#
-PRODUCT_COPY_FILES +=  \
-    vendor/cyanogen/prebuilt/mdpi/media/bootanimation.zip:system/media/bootanimation.zip
